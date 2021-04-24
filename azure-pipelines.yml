@@ -14,5 +14,17 @@ variables:
 
 steps:
 
-steps: - task: DotNetCoreCLI@2 displayName: Build inputs: command: build projects: '*/.csproj' arguments: '--configuration $(buildConfiguration)' # do this after other tasks such as building - task: DotNetCoreCLI@2 inputs: command: test projects: '*/*Tests/.csproj' arguments: '--configuration $(buildConfiguration)'
+steps: 
+- task: DotNetCoreCLI@2 
+displayName: 
+Build inputs: 
+command: 
+build projects: '*/.csproj' 
+arguments: '--configuration $(buildConfiguration)'
+# do this after other tasks such as building 
+- task: DotNetCoreCLI@2 
+ inputs: 
+ command: 
+ test projects: '*/*Tests/.csproj' 
+ arguments: '--configuration $(buildConfiguration)'
 
